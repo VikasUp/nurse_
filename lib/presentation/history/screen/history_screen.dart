@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:stock_management/presentation/details/screen/details_screen.dart';
 
 class HistoryScreen extends StatefulWidget {
-  const HistoryScreen({Key? key}) : super(key: key);
+  HistoryScreen({Key? key}) : super(key: key);
+
+  final TextStyle historyTextStyle = GoogleFonts.cairo(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+  );
 
   @override
   _HistoryScreenState createState() => _HistoryScreenState();
@@ -21,15 +28,15 @@ class _HistoryScreenState extends State<HistoryScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 27, vertical: 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
                     'Picking History',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: widget.historyTextStyle,
                   ),
-                  Text(
+                 const Text(
                     'P-#542651',
                     style: TextStyle(
                       fontSize: 15,
@@ -41,11 +48,19 @@ class _HistoryScreenState extends State<HistoryScreen> {
               ),
             ),
             TabBar(
-              tabs: [
-                Tab(text: 'Previous History'),
-                Tab(text: 'Today History'),
+              tabs: const [
+                Tab(
+                  text: 'Previous History',
+                ),
+                Tab(
+                  text: 'Today History',
+                ),
               ],
-              labelColor: Color(0xFF006064),
+              labelColor: const Color(0xFF006064),
+              labelStyle: GoogleFonts.cairo(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             Expanded(
               child: TabBarView(
@@ -76,15 +91,17 @@ class _HistoryScreenState extends State<HistoryScreen> {
 
   Widget _buildHistoryItemContainer(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 12, left: 15, right: 15),
+      margin: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
       width: double.infinity,
       decoration: BoxDecoration(
         border: Border.all(
-            color: const Color.fromARGB(255, 150, 149, 149), width: 1),
-        borderRadius: BorderRadius.circular(19),
+          color: const Color.fromARGB(255, 150, 149, 149),
+          width: 1,
+        ),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(15),
         child: Row(
           children: [
             Column(
@@ -94,11 +111,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 const Text(
                   'P-#542651',
                   style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF006064)),
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF006064),
+                  ),
                 ),
-                const SizedBox(height: 10),
                 Row(
                   children: [
                     Container(
@@ -122,15 +139,16 @@ class _HistoryScreenState extends State<HistoryScreen> {
             ),
             const Spacer(),
             Flexible(
-              child: Container(
-                width: 110,
+              child:  Container(
+                width: 105,
                 height: 30,
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const DetailScreen()),
+                        builder: (context) => const DetailScreen(),
+                      ),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -165,57 +183,113 @@ class _HistoryScreenState extends State<HistoryScreen> {
 
   Widget _buildPreviousHistory(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Select Start Date:'),
-              TextButton(
-                onPressed: () async {
-                  DateTime? pickedDate = await showDatePicker(
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime(2000),
-                    lastDate: DateTime(2101),
-                  );
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  child: Container(
+                    width: 20,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: TextButton(
+                      onPressed: () async {
+                        DateTime? pickedDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(2000),
+                          lastDate: DateTime(2101),
+                        );
+                        if (pickedDate != null) {
+                          setState(() {
+                            startDate = pickedDate;
+                          });
+                        }
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          startDate == null
+                              ? Text('Start Date',
+                                  style:
+                                      GoogleFonts.cairo(color: Colors.black54))
+                              : Text(
+                                  DateFormat('yyyy-MM-dd').format(startDate!),
+                                  style: const TextStyle(color: Colors.black54),
+                                ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Image(
+                            image: AssetImage('assets/images/calendar.png'),
+                            height: 15,
+                            width: 15,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                  child: Container(
+                    width: 100,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: TextButton(
+                      onPressed: () async {
+                        DateTime? pickedDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(2000),
+                          lastDate: DateTime(2101),
+                        );
 
-                  if (pickedDate != null) {
-                    setState(() {
-                      startDate = pickedDate;
-                    });
-                  }
-                },
-                child: Text('From'),
-              ),
-            ],
+                        if (pickedDate != null) {
+                          setState(() {
+                            endDate = pickedDate;
+                          });
+                        }
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          endDate == null
+                              ? Text('End Date',
+                                  style:
+                                      GoogleFonts.cairo(color: Colors.black54))
+                              : Text(
+                                  DateFormat('yyyy-MM-dd').format(endDate!),
+                                  style: const TextStyle(color: Colors.black54),
+                                ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Image(
+                            image: AssetImage('assets/images/calendar.png'),
+                            height: 15,
+                            width: 15,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-          SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Select End Date:'),
-              TextButton(
-                onPressed: () async {
-                  DateTime? pickedDate = await showDatePicker(
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime(2000),
-                    lastDate: DateTime(2101),
-                  );
-
-                  if (pickedDate != null) {
-                    setState(() {
-                      endDate = pickedDate;
-                    });
-                  }
-                },
-                child: Text('To'),
-              ),
-            ],
-          ),
-          SizedBox(height: 20),
           Expanded(
             child: _buildHistoryItem(context),
           ),

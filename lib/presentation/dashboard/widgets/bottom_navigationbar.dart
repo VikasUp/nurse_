@@ -13,7 +13,7 @@ class MyBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.only(
+      borderRadius: const BorderRadius.only(
         topLeft: Radius.circular(20.0),
         topRight: Radius.circular(20.0),
       ),
@@ -26,7 +26,7 @@ class MyBottomNavigationBar extends StatelessWidget {
               height: 25,
             ),
             label: 'Home',
-            backgroundColor: Color(0xFF006064),
+            backgroundColor: const Color(0xFF006064),
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
@@ -35,7 +35,7 @@ class MyBottomNavigationBar extends StatelessWidget {
               height: 25,
             ),
             label: 'Scan',
-            backgroundColor: Color(0xFF006064),
+            backgroundColor: const Color(0xFF006064),
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
@@ -44,7 +44,7 @@ class MyBottomNavigationBar extends StatelessWidget {
               height: 25,
             ),
             label: 'Pick',
-            backgroundColor: Color(0xFF006064),
+            backgroundColor: const Color(0xFF006064),
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
@@ -53,7 +53,7 @@ class MyBottomNavigationBar extends StatelessWidget {
               height: 25,
             ),
             label: 'History',
-            backgroundColor: Color(0xFF006064),
+            backgroundColor: const Color(0xFF006064),
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
@@ -62,11 +62,11 @@ class MyBottomNavigationBar extends StatelessWidget {
               height: 25,
             ),
             label: 'Profile',
-            backgroundColor: Color(0xFF006064),
+            backgroundColor: const Color(0xFF006064),
           )
         ],
         currentIndex: selectedIndex,
-        selectedItemColor: Color.fromARGB(255, 248, 249, 249),
+        selectedItemColor: const Color.fromARGB(255, 248, 249, 249),
         onTap: onTabTapped,
       ),
     );

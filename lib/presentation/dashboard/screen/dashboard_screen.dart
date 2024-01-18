@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:stock_management/presentation/dashboard/screen/homeScreen.dart';
 import 'package:stock_management/presentation/dashboard/widgets/bottom_navigationbar.dart';
 import 'package:stock_management/presentation/history/screen/history_screen.dart';
@@ -75,27 +76,27 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                       ),
                     ),
                     const SizedBox(width: 7),
-                    const Padding(
-                      padding: EdgeInsets.all(0.0),
+                    Padding(
+                      padding:  const EdgeInsets.all(0.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(height: 5),
+                         const SizedBox(height: 5),
                           Text(
                             'Welcome',
-                            style: TextStyle(
-                              fontSize: 12.0,
+                            style: GoogleFonts.cairo(
+                              fontSize: 15.0,
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 1.0),
+                            padding: const EdgeInsets.only(top: 1.0),
                             child: Text(
                               'MS.SABA',
-                              style: TextStyle(
-                                fontSize: 25.0,
+                              style: GoogleFonts.cairo(
+                                fontSize: 20.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -106,14 +107,14 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                     ),
                   ],
                 ),
-                IconButton(
-                  icon: const Icon(
-                    Icons.notifications,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                  onPressed: () {},
-                ),
+                // IconButton(
+                //   icon: const Icon(
+                //     Icons.notifications,
+                //     color: Colors.white,
+                //     size: 40,
+                //   ),
+                //   onPressed: () {},
+                // ),
               ],
             ),
           ),

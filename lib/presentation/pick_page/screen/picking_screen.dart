@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class PickingPageScreen extends StatefulWidget {
   const PickingPageScreen({Key? key}) : super(key: key);
@@ -32,39 +33,31 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: Container(
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Add New Pick',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ],
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 18),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'Add New Pick',
+                  style: GoogleFonts.cairo(
+                      fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  'P-#542651',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF006064),
                   ),
-                  Text(
-                    'P-#542651',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF006064),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           SizedBox(
-            height: 10,
+            height: 5,
           ),
           Expanded(
             child: SingleChildScrollView(
@@ -87,22 +80,19 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
                             SizedBox(width: 10),
                             Text(
                               'Location',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  
-                                  color: Colors.black),
+                              style: GoogleFonts.cairo(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 5,
-                  ),
                   Padding(
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 15, vertical: 2),
+                        const EdgeInsets.symmetric(horizontal: 22, vertical: 9),
                     child: DropdownButtonFormField<String>(
                       value: selectedLocation,
                       icon: const Icon(Icons.arrow_downward_outlined),
@@ -119,17 +109,17 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
                           child: Text(location),
                         );
                       }).toList(),
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Select Location',
+                        labelStyle: GoogleFonts.cairo(
+                          fontSize: 14.0,
+                        ),
                         border: OutlineInputBorder(),
                         contentPadding: EdgeInsets.symmetric(
                             vertical: 5.0, horizontal: 10.0),
                         hintStyle: TextStyle(fontSize: 10.0),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 8,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -148,24 +138,26 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
                             SizedBox(width: 10),
                             Text(
                               'Barcode',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                 
-                                  color: Colors.black),
+                              style: GoogleFonts.cairo(
+                                fontSize: 16,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ],
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 5,
-                  ),
                   Padding(
-                    padding: const EdgeInsets.all(15.0),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 22, vertical: 9),
                     child: TextFormField(
                       decoration: InputDecoration(
                         labelText: 'Scan Barcode',
+                        labelStyle: GoogleFonts.cairo(
+                          fontSize: 14.0,
+                        ),
                         border: const OutlineInputBorder(),
                         contentPadding: const EdgeInsets.symmetric(
                           vertical: 5.0,
@@ -194,21 +186,21 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
                       },
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 22, vertical: 5),
                     child: Row(
                       children: [
                         Expanded(
                           child: SizedBox(
-                            height: 25,
+                            height: 30,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 SizedBox(width: 5),
                                 Text(
                                   'Shopping Cart',
-                                  style: TextStyle(
-                                    fontSize: 18,
+                                  style: GoogleFonts.cairo(
+                                    fontSize: 16,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -279,7 +271,7 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
 
   Widget _buildShoppingCart() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: Container(
         width: double.infinity,
         child: Column(
@@ -304,7 +296,7 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
                     children: [
                       Text(
                         'ARIPIPRAZOLE 10 MG TABLET ${index + 1}',
-                        style: const TextStyle(
+                        style: GoogleFonts.cairo(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
                         ),
@@ -434,7 +426,6 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
         false,
         ScanMode.DEFAULT,
       );
-
       if (scannedBarcode != '-1') {
         showDialog(
           context: context,
@@ -461,7 +452,6 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
             );
           },
         );
-
         setState(() {
           barcode = scannedBarcode;
         });
@@ -510,10 +500,10 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
 
   Widget _buildOrderNote() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
       child: Column(
         children: [
-          const Row(
+          Row(
             children: [
               Expanded(
                 child: SizedBox(
@@ -529,7 +519,7 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
                       SizedBox(width: 5),
                       Text(
                         'Order Note',
-                        style: TextStyle(
+                        style: GoogleFonts.cairo(
                           fontSize: 16,
                           color: Colors.black,
                         ),
@@ -556,14 +546,13 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
                 hintText: 'Enter your order note',
                 border: InputBorder.none,
               ),
-              style: TextStyle(
+              style: GoogleFonts.cairo(
                 fontSize: 12,
                 color: Colors.black,
               ),
-              maxLines: null, // Allow multiple lines
+              maxLines: null,
               keyboardType: TextInputType.multiline,
               onChanged: (value) {
-                // Handle changes to the order note
                 print('Order Note: $value');
               },
             ),
@@ -578,53 +567,84 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          // contentPadding: EdgeInsets.zero,
-          backgroundColor: Colors.white, // Set dialog box color to white
-          content: Container(
-            width: 300,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  'assets/images/clear.png',
-                  height: 80,
-                  width: 80,
-                ),
-                SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Are you sure',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10),
-                Text('You want to remove this material'),
-                SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Text('Cancel'),
-                    ),
-                    SizedBox(width: 20),
-                    TextButton(
-                      onPressed: () {
-                        // _deleteItem();
-                        Navigator.of(context).pop();
-                      },
-                      child: Text('Yes'),
-                    ),
-                  ],
-                ),
-              ],
+          backgroundColor: Colors.white,
+          content: SizedBox(
+            height: 300,
+            child: Container(
+              width: 300,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/images/clear.png',
+                    height: 80,
+                    width: 80,
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Are you sure',
+                        style: GoogleFonts.cairo(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Text('You want to remove this material !!',
+                      style: GoogleFonts.cairo(
+                        fontSize: 15,
+                      )),
+                  SizedBox(height: 30),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 100,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: const Color.fromARGB(255, 222, 219, 219),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                          ),
+                          child: Text(
+                            'Cancel',
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 20),
+                      Container(
+                        width: 100,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            // _deleteItem();
+                            Navigator.of(context).pop();
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Color(0xFF006064),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                          ),
+                          child: const Text(
+                            'Yes',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         );
@@ -634,7 +654,7 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
 
   Widget _orderSummary() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
       child: Container(
         height: 150,
         width: double.infinity,
@@ -679,7 +699,7 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
                             '5pcs',
                             style: TextStyle(
                               color: Colors.black,
-                              // fontWeight: FontWeight.bold,
+                            
                             ),
                           ),
                         ),
@@ -700,7 +720,7 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
                             '410pcs',
                             style: TextStyle(
                               color: Colors.black,
-                              // fontWeight: FontWeight.bold,
+                             
                             ),
                           ),
                         ),
@@ -718,7 +738,7 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
                           '12:30 PM',
                           style: TextStyle(
                             color: Colors.black,
-                            // fontWeight: FontWeight.bold,
+                          
                           ),
                         ),
                       ],
@@ -735,7 +755,7 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
                           '12:54 PM',
                           style: TextStyle(
                             color: Colors.black,
-                            // fontWeight: FontWeight.bold,
+                           
                           ),
                         ),
                       ],
@@ -790,9 +810,9 @@ class _PickingPageScreenState extends State<PickingPageScreen> {
           width: 250,
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           alignment: Alignment.center,
-          child: const Text(
+          child: Text(
             'Complete Picking',
-            style: TextStyle(
+            style: GoogleFonts.cairo(
               fontSize: 14,
               fontWeight: FontWeight.bold,
               color: Colors.white,

@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ManagementScreenPage extends StatefulWidget {
-  const ManagementScreenPage({Key? key}) : super(key: key);
+  ManagementScreenPage({super.key});
+
+  final TextStyle manageTextStyle = GoogleFonts.cairo(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+  );
+
   @override
   _ManagementScreenPageState createState() => _ManagementScreenPageState();
 }
@@ -83,7 +90,7 @@ class _ManagementScreenPageState extends State<ManagementScreenPage> {
                             child: Text(
                               'MS.SABA',
                               style: TextStyle(
-                                fontSize: 25.0,
+                                fontSize: 20.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -94,48 +101,40 @@ class _ManagementScreenPageState extends State<ManagementScreenPage> {
                     ),
                   ],
                 ),
-                IconButton(
-                  icon: const Icon(
-                    Icons.notifications,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                  onPressed: () {},
-                ),
+                // IconButton(
+                //   icon: const Icon(
+                //     Icons.notifications,
+                //     color: Colors.white,
+                //     size: 40,
+                //   ),
+                //   onPressed: () {},
+                // ),
               ],
             ),
           ),
         ),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: Container(
-              padding: const EdgeInsets.only(right: 260, top: 18),
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Result',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                    ],
+            padding: const EdgeInsets.symmetric(horizontal: 27, vertical: 15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'Result',
+                  style: widget.manageTextStyle,
+                ),
+                const Text(
+                  'P-#542652',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF006064),
                   ),
-                  Text(
-                    'M-#537928',
-                    style: TextStyle(
-                      color: Colors.teal,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           Expanded(
@@ -163,7 +162,8 @@ class _ManagementScreenPageState extends State<ManagementScreenPage> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 10),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -173,32 +173,32 @@ class _ManagementScreenPageState extends State<ManagementScreenPage> {
                           children: [
                             Text(
                               'Material Description',
-                              style: TextStyle(
-                                fontSize: 18,
+                              style: GoogleFonts.cairo(
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Text(
                           'The Point of using CELLCEPT 250MG CAPSULE is that it has a more -or-less normal distribuitioon of letters as opposed making it look like readbleEnglish.MAny Desktop publisghimg packages ',
-                          style: TextStyle(
-                            fontSize: 16,
+                          style: GoogleFonts.cairo(
+                            fontSize: 13,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Text(
                           'Available Stock',
-                          style: TextStyle(
+                          style: GoogleFonts.cairo(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                            fontSize: 16,
                             color: Colors.black,
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 5),
                         Row(
                           children: [
                             Expanded(
@@ -207,37 +207,36 @@ class _ManagementScreenPageState extends State<ManagementScreenPage> {
                                 children: [
                                   Text(
                                     'Location',
-                                    style: TextStyle(
-                                      fontSize: 16,
+                                    style: GoogleFonts.cairo(
+                                      fontSize: 13,
                                       color: Color(0xFF006064),
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                   Text(
                                     selectedLocation ?? 'Warehouse 1',
-                                    style: TextStyle(
+                                    style: GoogleFonts.cairo(
                                       fontSize: 16,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                            SizedBox(width: 20),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     'Quantity',
-                                    style: TextStyle(
-                                      color: Color(0xFF006064),
-                                      fontSize: 16,
+                                    style: GoogleFonts.cairo(
+                                      color: const Color(0xFF006064),
+                                      fontSize: 13,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                   Text(
                                     '20 pcs',
-                                    style: TextStyle(
+                                    style: GoogleFonts.cairo(
                                       fontSize: 16,
                                     ),
                                   ),

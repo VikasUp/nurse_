@@ -4,10 +4,10 @@ class SplashScreen extends StatefulWidget {
   static String tag = 'splash-screen';
   final String backgroundImagePath;
 
-  const SplashScreen({Key? key, required this.backgroundImagePath})
-      : super(key: key);
+  const SplashScreen({super.key, required this.backgroundImagePath});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SplashScreenState createState() => _SplashScreenState();
 }
 
@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) => Scaffold(
         body: Container(
-          color: Color.fromARGB(255, 209, 254, 241), 
+          color: const Color.fromARGB(255, 209, 254, 241), 
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   widget.backgroundImagePath,
                   height: 100, 
                 ),
-                SizedBox(height: 16), 
+                const SizedBox(height: 16), 
               ],
             ),
           ),

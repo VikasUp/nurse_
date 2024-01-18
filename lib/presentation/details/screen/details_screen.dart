@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:stock_management/presentation/dashboard/screen/homeScreen.dart';
 import 'package:stock_management/presentation/dashboard/widgets/bottom_navigationbar.dart';
 import 'package:stock_management/presentation/history/screen/history_screen.dart';
@@ -16,10 +17,10 @@ class _DetailScreenState extends State<DetailScreen> {
   int _selectedIndex = 0;
 
   static const List _widgetOptions = [
-    HomeScreen(),
+    // HomeScreen(),
     ProfileScreen(),
     PickingPageScreen(),
-    HistoryScreen(),
+    // HistoryScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -68,27 +69,27 @@ class _DetailScreenState extends State<DetailScreen> {
                       ),
                     ),
                     const SizedBox(width: 7),
-                    const Padding(
-                      padding: EdgeInsets.all(3.0),
+                    Padding(
+                      padding: const EdgeInsets.all(3.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Text(
                             'Welcome',
-                            style: TextStyle(
+                            style: GoogleFonts.cairo(
                               fontSize: 12.0,
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 2.0),
+                            padding: const EdgeInsets.only(top: 2.0),
                             child: Text(
                               'MS.SABA',
-                              style: TextStyle(
-                                fontSize: 25.0,
+                              style: GoogleFonts.cairo(
+                                fontSize: 20.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -99,14 +100,14 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                   ],
                 ),
-                IconButton(
-                  icon: const Icon(
-                    Icons.notifications,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                  onPressed: () {},
-                ),
+                // IconButton(
+                //   icon: const Icon(
+                //     Icons.notifications,
+                //     color: Colors.white,
+                //     size: 40,
+                //   ),
+                //   onPressed: () {},
+                // ),
               ],
             ),
           ),
@@ -117,8 +118,9 @@ class _DetailScreenState extends State<DetailScreen> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 35, vertical: 10),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -128,17 +130,17 @@ class _DetailScreenState extends State<DetailScreen> {
                       children: [
                         Text(
                           'Add New Pick',
-                          style: TextStyle(
+                          style: GoogleFonts.cairo(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
                     Text(
                       'P-#542651',
-                      style: TextStyle(
+                      style: GoogleFonts.cairo(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF006064),
+                        color: const Color(0xFF006064),
                       ),
                     ),
                   ],
@@ -147,99 +149,110 @@ class _DetailScreenState extends State<DetailScreen> {
               SizedBox(
                 width: size.width,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 35),
+                  padding: const EdgeInsets.symmetric(horizontal: 18),
                   child: Column(
                     children: [
                       const SizedBox(height: 20),
                       SingleChildScrollView(
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: 5,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              width: size.width,
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 10),
-                              margin: const EdgeInsets.only(),
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: const Color.fromARGB(
-                                        255, 121, 121, 121),
-                                    width: 0.5),
-                                borderRadius: BorderRadius.circular(4),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        'ARIPIPRAZOLE 10 MG TABLET ${index + 1}',
-                                        style: const TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 5),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Container(
-                                        child: const Text(
-                                          'ORDER Qty:80 pcs\nDelivered Qty:80pcs',
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                            color: Color.fromARGB(
-                                                255, 121, 121, 121),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: const Color.fromARGB(255, 121, 121, 121),
+                                width: 0.5),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: ListView.separated(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: 5,
+                            itemBuilder: (context, index) {
+                              return Container(
+                                width: size.width,
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 10),
+                                margin: const EdgeInsets.only(),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'ARIPIPRAZOLE 10 MG TABLET ${index + 1}',
+                                          style: GoogleFonts.cairo(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                        margin:
-                                            const EdgeInsets.only(bottom: 5),
-                                      ),
-                                      const SizedBox(width: 10),
-                                      Container(
-                                        child: const Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              'Code:00004',
-                                              style: TextStyle(
-                                                fontSize: 13,
-                                                color: Color(0xFF006064),
-                                                fontWeight: FontWeight.bold,
-                                              ),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 8,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                          margin:
+                                              const EdgeInsets.only(bottom: 0),
+                                          child: Text(
+                                            'ORDER Qty:80 pcs\nDelivered Qty:80pcs',
+                                            style: GoogleFonts.cairo(
+                                              fontSize: 13,
+                                              color: const Color.fromARGB(
+                                                  255, 121, 121, 121),
                                             ),
-                                            Text(
-                                              '12:42 PM',
-                                              style: TextStyle(
-                                                fontSize: 12,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ],
+                                          ),
                                         ),
-                                        margin: const EdgeInsets.only(top: 6),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
+                                        const SizedBox(height: 10),
+                                        Container(
+                                          margin: const EdgeInsets.only(top: 1),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Code:00004',
+                                                style: GoogleFonts.cairo(
+                                                  fontSize: 12,
+                                                  color:
+                                                      const Color(0xFF006064),
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                height: 2,
+                                              ),
+                                              Text(
+                                                '12:42 PM',
+                                                style: GoogleFonts.cairo(
+                                                  fontSize: 12,
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                            separatorBuilder:
+                                (BuildContext context, int index) {
+                              return Divider();
+                            },
+                          ),
                         ),
                       ),
                       const SizedBox(height: 10),
-                      const Row(
+                      Row(
                         children: [
                           Expanded(
                             child: SizedBox(
@@ -247,15 +260,15 @@ class _DetailScreenState extends State<DetailScreen> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Icon(
+                                  const Icon(
                                     Icons.note,
                                     color: Color(0xFF006064),
                                     size: 16,
                                   ),
-                                  SizedBox(width: 5),
+                                  const SizedBox(width: 5),
                                   Text(
                                     'Order Note',
-                                    style: TextStyle(
+                                    style: GoogleFonts.cairo(
                                       fontSize: 16,
                                       color: Colors.black,
                                     ),
@@ -279,11 +292,11 @@ class _DetailScreenState extends State<DetailScreen> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: TextField(
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'Enter your order note',
                             border: InputBorder.none,
                           ),
-                          style: TextStyle(
+                          style: GoogleFonts.cairo(
                             fontSize: 12,
                             color: Colors.black,
                           ),
@@ -307,12 +320,12 @@ class _DetailScreenState extends State<DetailScreen> {
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: const Column(
+                        child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               'Order Summary',
-                              style: TextStyle(
+                              style: GoogleFonts.cairo(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black,
@@ -328,11 +341,13 @@ class _DetailScreenState extends State<DetailScreen> {
                                   children: [
                                     Text(
                                       'Total Materials: ',
-                                      style: TextStyle(color: Colors.black),
+                                      style: GoogleFonts.cairo(
+                                          color: Colors.black),
                                     ),
                                     Text(
                                       '5 ',
-                                      style: TextStyle(color: Colors.black),
+                                      style: GoogleFonts.cairo(
+                                          color: Colors.black),
                                     ),
                                   ],
                                 ),
@@ -343,11 +358,13 @@ class _DetailScreenState extends State<DetailScreen> {
                                   children: [
                                     Text(
                                       'Total Quantity: ',
-                                      style: TextStyle(color: Colors.black),
+                                      style: GoogleFonts.cairo(
+                                          color: Colors.black),
                                     ),
                                     Text(
                                       ' 100',
-                                      style: TextStyle(color: Colors.black),
+                                      style: GoogleFonts.cairo(
+                                          color: Colors.black),
                                     ),
                                   ],
                                 ),
@@ -358,11 +375,13 @@ class _DetailScreenState extends State<DetailScreen> {
                                   children: [
                                     Text(
                                       'Start Time: ',
-                                      style: TextStyle(color: Colors.black),
+                                      style: GoogleFonts.cairo(
+                                          color: Colors.black),
                                     ),
                                     Text(
                                       '100',
-                                      style: TextStyle(color: Colors.black),
+                                      style: GoogleFonts.cairo(
+                                          color: Colors.black),
                                     ),
                                   ],
                                 ),
@@ -373,11 +392,13 @@ class _DetailScreenState extends State<DetailScreen> {
                                   children: [
                                     Text(
                                       'End Time: ',
-                                      style: TextStyle(color: Colors.black),
+                                      style: GoogleFonts.cairo(
+                                          color: Colors.black),
                                     ),
                                     Text(
                                       '100',
-                                      style: TextStyle(color: Colors.black),
+                                      style: GoogleFonts.cairo(
+                                          color: Colors.black),
                                     ),
                                   ],
                                 ),
